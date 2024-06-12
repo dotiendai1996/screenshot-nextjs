@@ -10,9 +10,10 @@ export default async function startBrowser() {
 	        // headless: false,
 	        // args: ["--disable-setuid-sandbox"],
 			// 'ignoreHTTPSErrors': true
-			args: edgeChromium.args,
-			defaultViewport: edgeChromium.defaultViewport,
-			executablePath: await edgeChromium.executablePath,
+			args: ['--no-sandbox'],
+			// defaultViewport: edgeChromium.defaultViewport,
+			ignoreDefaultArgs: ['--disable-extensions'],
+			executablePath: await edgeChromium.executablePath || "/usr/bin/chromium-browser",
 			headless: edgeChromium.headless,
 			ignoreHTTPSErrors: true,
 	    });
