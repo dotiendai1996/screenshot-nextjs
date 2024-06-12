@@ -2,15 +2,11 @@
 import edgeChromium from 'chrome-aws-lambda';
 import puppeteer from 'puppeteer-core';
 
-const LOCAL_CHROME_EXECUTABLE = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
-
 export default async function startBrowser() {
 	let browser;
-	// Edge executable will return an empty string locally.
-	const executablePath = await edgeChromium.executablePath || LOCAL_CHROME_EXECUTABLE
 	try {
 	    console.log("Opening the browser......");
-	    browser = await edgeChromium.puppeteer.launch({
+	    browser = await puppeteer.launch({
 	        // headless: false,
 	        // args: ["--disable-setuid-sandbox"],
 			// 'ignoreHTTPSErrors': true
